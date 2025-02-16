@@ -364,9 +364,9 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column">
-          <h2 class="title is-3" style="color: #2C3E50;">Overview</h2>
+          <h2 class="title is-3" style="color: #2C3E50;">Motivation</h2>
           <div class="column is-centered">
-            <figure class="image" style="margin-top: 2rem; width: 70%; margin-left: auto; margin-right: auto;">
+            <figure class="image" style="margin-top: 2rem; width: 50%; margin-left: auto; margin-right: auto;">
               <img src="static/image_RS/motivation.jpg" 
                    alt="Overview Illustration" 
                    style="width:100%"> <!-- "border: 2px solid #2C3E50; border-radius: 8px; padding: 0.5em; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"> -->
@@ -375,14 +375,14 @@
               </figcaption> -->
             </figure>
             <div class="box content has-text-justified" style="background-color: #ffffff; padding: 1.5em; border-left: 5px solid #2C3E50; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-              <h4 class="title is-4" style="color: #2C3E50;">Key Questions</h4>
+              <h4 class="title is-4" style="color: #2C3E50;">Open-ended Questions</h4>
               <ul style="margin-top: 1em;">
-                <li>How to utilize interleaved text-image documents for vision-language pretraining ?</li>
-                <li>How to enhance VLM with real-world knowledge ?</li>
+                <li>How to utilize multimodal interleaved documents for vision-language representation learning?</li>
+                <li>How to effectively leverage both realistic and synthetic texts to enhance representation performance?</li>
               </ul>
               <hr style="border-top: 1px solid #2C3E50; margin: 1em 0;">
               <p style="font-size: 1em; line-height: 1.6; color: #2C3E50;">
-                Interleaved image-text documents are unsuitable for vision-language pre-training. We extract real-world knowledge from interleaved documents and convert it to distinct image-text pairs via retrieval and augmentation.
+                To this end, we first establish a Real-World Data Extraction pipeline to extract high-quality images and texts. Then we design a hierarchical retrieval method to efficiently associate each image with multiple semantically relevant texts. To enhance fine-grained image understanding, we propose a visual semantic augmented generation module for synthetic text production. Furthermore, we employ a semantic balance sampling strategy to improve dataset diversity, enabling better learning of long-tail concepts.
               </p>
             </div>
             </div>
@@ -400,46 +400,93 @@
   
   <section class="section">
     <div class="container is-max-desktop">
-
+      
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">RS100M</h2>
-       
+          <h2 class="title is-3"><i>RealSyn</i> Dataset</h2>
+          <p style="color: #333333;">
+            We use the open-source interleaved dataset <a href="https://huggingface.co/datasets/HuggingFaceM4/OBELICS" target="_blank">OBELICS<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" style="height: 1em; vertical-align: middle;"></a>
+          </p>
+          <div id="tab:sail_ablation" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="table-container">
+              <table style="width:100%; border-collapse: collapse; font-size: small; text-align: center;">
+                <thead>
+                  <tr style="background-color: #f0f0f0;">
+                    <th style="border: 1px solid #ddd; padding: 8px;">Dataset</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">#Images</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">#Avg Tokens / Image</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">#Avg Texts / Image</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Text Type</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Source Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">CC12M</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">12,000,000</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">-</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">YFCC15M</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">15,000,000</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">16</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">CapsFusion</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">120,000,000</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">-</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Synthetic</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Image-Text pair</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">LAION400M</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">400,000,000</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">27</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                  </tr>
+                  <tr style="background-color: #ebebeb;">
+                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>15M</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">15,250,144</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">40</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                  </tr>
+                  <tr style="background-color: #ebebeb;">
+                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>30M</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">30,328,852</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">38</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                  </tr>
+                  <tr style="background-color: #ebebeb;">
+                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>100M</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">100,862,786</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">36</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                  </tr>
+                </tbody>
+              </table>                    
+            </div>
+            <p style="font-style: italic; color: #666; margin-top: -1em;">
+              Table: Comparison with large-scale image-text pre-training datasets.
+            </p>  
+          </div>
+
           <div class="content has-text-justified">
-            <p style="color: #333333;">
-              We use the open-source interleaved dataset <a href="https://huggingface.co/datasets/HuggingFaceM4/OBELICS" target="_blank">OBELICS<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" style="height: 1em; vertical-align: middle;"></a>
-            </p>
             <div class="content has-text-justified">
-              <!-- Enhanced selector buttons with neumorphic design -->
-              <!-- <div class="tabs is-centered" style="margin-bottom: 2rem;">
-                <ul style="border-bottom: none; 
-                           padding: 0.5rem 2rem; 
-                           background: transparent;
-                           border-radius: 16px;"> -->
-                  <!-- <li class="is-active" data-target="language-anchor">
-                    <a class="tab-button" style="margin: 0 1rem;
-                              padding: 1rem 2rem;
-                              border-radius: 12px;
-                              transition: all 0.3s ease;">
-                      <span class="icon is-medium" style="margin-right: 0.5rem;">
-                        <i class="fas fa-language fa-lg"></i>
-                      </span>
-                      <span style="font-weight: 600; font-size: 1.1rem;">Language as Anchor</span>
-                    </a>
-                  </li> -->
-                  <!-- <li data-target="vision-anchor">
-                    <a class="tab-button" style="margin: 0 1rem;
-                              padding: 1rem 2rem;
-                              border-radius: 12px;
-                              transition: all 0.3s ease;">
-                      <span class="icon is-medium" style="margin-right: 0.5rem;">
-                        <i class="fas fa-eye fa-lg"></i>
-                      </span>
-                      <span style="font-weight: 600; font-size: 1.1rem;">Vision as Anchor</span>
-                    </a>
-                  </li> -->
-                <!-- </ul>
-              </div> -->
 
               <!-- Language as Anchor content -->
               <div class="content has-text-justified">
@@ -447,101 +494,79 @@
                 <div class="columns is-centered">
                   <div class="column">
                     <img src="static/image_RS/topic_distribution.jpg" style="width:100%">
-                  </div>
+                  </div> 
                   <!-- <div class="column">
                     <img src="static/images/visionalign_linearprobe.png" style="width:100%">
                   </div> -->
                 </div>
-                
-                <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from RW-KRA.</em>
-                
-                <div id="tab:sail_ablation" style="display: flex; flex-direction: column; align-items: center;">
-                  <div class="table-container">
-                    <table style="width:100%; border-collapse: collapse; font-size: small; text-align: center;">
-                      <thead>
-                        <tr style="background-color: #f0f0f0;">
-                          <th style="border: 1px solid #ddd; padding: 8px;">Dataset</th>
-                          <th style="border: 1px solid #ddd; padding: 8px;">#Images</th>
-                          <th style="border: 1px solid #ddd; padding: 8px;">#Avg Tokens / Image</th>
-                          <th style="border: 1px solid #ddd; padding: 8px;">#Avg Texts / Image</th>
-                          <th style="border: 1px solid #ddd; padding: 8px;">Text Type</th>
-                          <th style="border: 1px solid #ddd; padding: 8px;">Source Type</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td style="border: 1px solid #ddd; padding: 8px;">CC12M</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">12,000,000</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">-</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                        </tr>
-                        <tr>
-                          <td style="border: 1px solid #ddd; padding: 8px;">YFCC15M</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">15,000,000</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">16</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                        </tr>
-                        <tr>
-                          <td style="border: 1px solid #ddd; padding: 8px;">CapsFusion</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">120,000,000</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">-</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Synthetic</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Image-Text pair</td>
-                        </tr>
-                        <tr>
-                          <td style="border: 1px solid #ddd; padding: 8px;">LAION400M</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">400,000,000</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">27</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                        </tr>
-                        <tr style="background-color: #ebebeb;">
-                          <td style="border: 1px solid #ddd; padding: 8px;"><strong>RS-15M</strong></td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">15,250,144</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">40</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                        </tr>
-                        <tr style="background-color: #ebebeb;">
-                          <td style="border: 1px solid #ddd; padding: 8px;"><strong>RS-30M</strong></td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">30,328,852</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">38</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                        </tr>
-                        <tr style="background-color: #ebebeb;">
-                          <td style="border: 1px solid #ddd; padding: 8px;"><strong>RS-100M</strong></td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">100,000,000</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">38</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                          <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                        </tr>
-                      </tbody>
-                    </table>                    
-                  </div>
-                  <p style="font-style: italic; color: #666; margin-top: -1em;">
-                    Table: Comparison with large-scale image-text pre-training datasets.
-                  </p>  
-                </div>
-
+                <!-- <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em> -->
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
+                  <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
+                  <ul style="margin-top: 1em; color: #333333;">
+                    <li><strong style="color: #333333;">Topic-based Assesment:</strong> Notably, samples related to flower and automotive constitute only 0.4% and 0.9% of the dataset. Due to the low number of samples, the model fails to adequately learn these concepts, resulting in poor linear probe and zero-shot transfer performance on the Flowers and Cars dataset.</li>
+                  </ul>
+                </div>
+              </div>
+                <div class="columns is-centered">
+                  <div class="column is-one-third">
+                    <img src="static/image_RS/data_consine_similarity_analysis.png" style="width:100%">
+                    <!-- <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em> -->
+                  </div>
+                  <div class="column is-one-third">
+                    <img src="static/image_RS/data_token_len.png" style="width:100%">
+                    <!-- <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em> -->
+                  </div>
+                </div>
+                <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
+                  <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
+                  <ul style="margin-top: 1em; color: #333333;">
+                    <li><strong style="color: #333333;">Richness Accessment:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
+                  </ul>
+                </div>
+              </div>
+                <div class="columns is-centered">
+                  <div class="column is-flex is-justify-content-center">
+                    <img src="static/image_RS/diversity_analysis.png" style="width:50%">
+                  </div>
+                </div>
+                <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
+                  <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
+                  <ul style="margin-top: 1em; color: #333333;">
+                    <li><strong style="color: #333333;">Diversity Accessment:</strong> Both the most relevant retrieved real-world sentence and semantic augmented synthetic caption of the <i>RealSyn</i> contain a larger number of distinct entities. This diversity of the data effectively guides the model in learning richer knowledge, thereby improving the performance and robustness. </li>
+                  </ul>
+                </div>
+              </div>
+
+                <!-- <div class="columns is-centered">
+                  <div class="column">
+                    <img src="static/image_RS/diversity_analysis.png" style="width:100%">
+                  </div>
+                </div>
+                <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em>
+
+                <div class="columns is-centered">
+                  <div class="column">
+                    <img src="static/image_RS/data_consine_similarity_analysis.png" style="width:100%">
+                  </div>
+                </div>
+                <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em>
+
+                <div class="columns is-centered">
+                  <div class="column">
+                    <img src="static/image_RS/data_token_len.png" style="width:100%">
+                  </div>
+                </div>
+                <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em> -->
+
+                <!-- <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4>
                   <ul style="margin-top: 1em; color: #333333;">
-                    <li><strong style="color: #333333;">Topic-based Assesment:</strong> Notably, samples related to flower and automotive constitute only 0.4\% and 0.9\% of the dataset. Due to the low number of samples, the model fails to adequately learn these concepts, resulting in poor linear probe and zero-shot transfer performance on the Flowers and Cars dataset.</li>
+                    <li><strong style="color: #333333;">Topic-based Assesment:</strong> Notably, samples related to flower and automotive constitute only 0.4% and 0.9% of the dataset. Due to the low number of samples, the model fails to adequately learn these concepts, resulting in poor linear probe and zero-shot transfer performance on the Flowers and Cars dataset.</li>
                     <li><strong style="color: #333333;">Richness Accessment:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
                     <li><strong style="color: #333333;">Diversity Accessment:</strong> Both the most relevant retrieved real-world sentence and semantic augmented synthetic caption of the RW-KRA contain a larger number of distinct entities. This diversity of the data effectively guides the model in learning richer knowledge, thereby improving the performance and robustness. </li>
                   </ul>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Vision as Anchor content -->
               <div id="vision-anchor" class="anchor-content" style="display: none;">
@@ -589,25 +614,25 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column">
-            <h2 class="title is-3">Real-World Knowledge Extraction Pipeline</h2>
+            <h2 class="title is-3">Real-World Data Extraction</h2>
             <div class="column is-centered">
               <div class="content">
-                <p style="color: #333333;">
+                <!-- <p style="color: #333333;">
                   To explore the utilization of real-world knowledge extracted from interleaved image-text documents for vision-language pre-training, we establish a Real-World Knowledge Extraction pipeline to extract high-quality images and textual sentences from interleaved documents to separate databases. This pipeline mainly consists of three steps: Data Extraction, Visual Image Filtration, and Textual Knowledge Filtration.
-                </p>
+                </p> -->
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
                     <img src="static/image_RS/data_filter.jpg" style="width:100%; margin: 0 auto;">
                   </div>
                 </div>
-                <em>Figure: The Real-World Knowledge Extraction pipeline to extract high-quality images and textual sentences from interleaved documents to separate databases.</em>
+                <em>Figure: The Real-World Data Extraction pipeline to extract high-quality images and texts from interleaved image-text documents.</em>
                 
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <h4 class="title is-5" style="color: #3273dc;">Steps</h4>
                   <ul style="margin-top: 1em; color: #333333;">
-                    <li><strong style="color: #333333;">Data Extraction:</strong>  We initially select a random sample of 80 million interleaved image-text documents from the OBELICS as our primary data source. Then, we extract all images and store them in a dedicated image database. Concurrently, we use the Natural Language Toolkit(NLTK) to segment the sentences and store them in a separate sentence database. </li>
-                    <li><strong style="color: #333333;">Visual Image Filtration:</strong> We first remove images under any of the following conditions: 1. the shorter dimension is less than 100 pixels; 2. the aspect ratio exceeds 3 or is less than 1/3. This step eliminates 30 million low-quality images. Following CLIP-CID, we employ the EVA02-CLIP E/14-plus model to extract image embeddings and use the Union-Find algorithm to filter out perceptually and semantically redundant images. </li>
-                    <li><strong style="color: #333333;">Textual Knowledge Filtration:</strong> These sentences undergo rigorous filtering based on quality, semantics, and redundancy. Initially, we eliminate sentences based on the following criteria: 1. presence of emojis or URLs; 2. sentences containing fewer than 3 or more than 81 words; and 3. following CAT~\cite{CAT_rule}, we retain samples with at least C1 caption complexity and incorporating an action. </li>
+                    <li><strong style="color: #333333;">Data Extraction:</strong> A random sample of 118 million image-text documents is selected from <a href="https://huggingface.co/datasets/HuggingFaceM4/OBELICS" target="_blank">OBELICS<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" style="height: 1em; vertical-align: middle;"></a>. Images are stored in a dedicated image database, and sentences are segmented using NLTK and stored in a separate sentence database. </li>
+                    <li><strong style="color: #333333;">Visual Image Filtration:</strong> Low-quality images are removed based on size and aspect ratio. Redundant images are filtered using EVA02-CLIP and the Union-Find algorithm. </li>
+                    <li><strong style="color: #333333;">Textual Knowledge Filtration:</strong> Sentences are filtered by eliminating those with emojis, URLs, or outside the word count range (3-81). Sentences with at least C1 caption complexity and containing an action are retained, according to CAT rules. </li>
                   </ul>
                 </div>
                 
@@ -666,26 +691,26 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column">
-            <h2 class="title is-3">Real-World Knowledge Retrieval and Augmentation</h2>
+            <h2 class="title is-3">Retrieval and Generation Framework</h2>
             <div class="column is-centered">
               <div class="content">
-                <p style="color: #333333;">
+                <!-- <p style="color: #333333;">
                   We propose a Real-World Knowledge Retrieval and Augmentation framework to efficiently retrieve the three most semantically relevant for each image and leverage large language models to integrate real-world knowledge with image semantic information and generate synthetic captions. The architecture of our framework primarily consists of three components: Hierarchical Knowledge Retrieval, Image Semantic Enhancement, and Knowledge Augmentation.
-                </p>
+                </p> -->
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
-                    <img src="static/image_RS/pipeline.jpg" style="width:100%; margin: 0 auto;">
+                    <img src="static/image_RS/pipeline.jpg" style="width:50%; margin: 0 auto;">
                   </div>
                 </div>
 
-                <em>Figure: The architecture of our proposed Real-World Knowledge Retrieval and Augmentation framework, which converts extracted real-world knowledge to distinct image-text pairs via retrieval and augmentation.</em>
+                <em>Figure: The architecture of our proposed framework, which constructs distinct image-text pairs from real-world data extracted from interleaved documents via retrieval and generation.</em>
 
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <h4 class="title is-5" style="color: #3273dc;">Key Contributions</h4>
                   <ul style="margin-top: 1em; color: #333333;">
-                    <li><strong style="color: #333333;">Hierarchical Knowledge Retrieval:</strong> We leverage the EVA02-CLIP E/14-plus model to encode all the images and sentences. Inspired by Unicom, we utilize the standard K-means algorithm offline to partition the 0.8B sentences into 2M clusters with the help of efficient feature quantization. Due to the substantial computational cost (over ten thousand hours on 8 $\times$ A100 GPUs) of directly selecting the three most relevant sentences from 0.8B sentences for an image, we divide the process into two levels to optimize retrieval efficiency. We first perform inter-cluster retrieval to find the most relevant cluster center for each image. Then, we group images sharing the same cluster center and perform intra-cluster retrieval to obtain the three most semantically relevant sentences. This approach enables the retrieval of 99 million images and 0.8 billion sentences within 20 hours using 8 A100 GPUs. </li>
-                    <li><strong style="color: #333333;">Image Semantic Enhancement:</strong> The above retrieval process cannot see the image content. To enrich image semantic information, we introduce the Image Semantic Enhancement module. This module adopts the OFA~\cite{OFA} model to generate a brief caption for each image. To obtain more fine-grained semantic information, we incorporate the open-set image tagging model RAM++ to extract object detection tags. Since RAM++ supports only 4K tags, we extend the tag support to 8K by collecting an additional 4K tags from real-world sentences and employing ChatGPT4-Turbo to generate corresponding descriptions. </li>
-                    <li><strong style="color: #333333;">Knowledge Augmentation:</strong> After retrieving real-world sentences and acquiring semantic information from images, following CapsFusion, we employ ChatGPT4-Turbo to integrate the first retrieved real-world sentences with image semantics information to generate synthetic captions. We construct a 100K instruction dataset (the prompt we used is presented in the supplementary materials). Subsequently, we employ the LLaMA Factory to fine-tune the LLaMA3-8B model and use vLLM for large-scale inference. Finally, we convert the images and real-world knowledge extracted from 118M interleaved documents to 99M image-text pairs, with each image paired with three retrieved real-world sentences and one semantic augmented synthetic caption.</li>
+                    <li><strong style="color: #333333;">Hierarchical Retrieval:</strong> Using EVA02-CLIP and K-means, 0.84B sentences are clustered into 2M groups. To optimize retrieval efficiency, the process is split into two levels: inter-cluster retrieval to find the closest cluster center and intra-cluster retrieval to find the top three relevant sentences. This method allows for efficient retrieval of 198 million images and 0.84 billion sentences in 40 hours with 8 A100 GPUs. </li>
+                    <li><strong style="color: #333333;">Image Semantic Augmented Generation:</strong> The Image Semantic Enhancement module generates brief captions using the OFA model and extracts object detection tags with RAM++. These tags are expanded to 8K with real-world tags and ChatGPT-4 Turbo descriptions. Real-world sentences and image semantics are then combined to create synthetic captions. This data fine-tunes the LLaMA3-8B model, resulting in 198M image-text pairs, each with three real-world sentences and one synthetic caption. </li>
+                    <li><strong style="color: #333333;">Semantic Balance Sampling:</strong> Using EVA02-CLIP, we calculate cosine similarity and filter out 29.7M pairs with high or low similarity. Inspired by MetaCLIP, we cluster the remaining 168.3M image embeddings into 1M centers and sample 20, 35, or 180 images from larger clusters, while retaining all from smaller ones. This process results in the creation of the <i>RealSyn</i>15M, <i>RealSyn</i>30M, and <i>RealSyn</i>100M datasets.
                   </ul>
                 </div>
                 <!-- <strong style="color: #4FC3F7">SAIL</strong> achieves superior alignment through three key optimizations:
@@ -761,7 +786,7 @@
         <div class="hero-body has-text-centered">
           <h1 class="title is-1 mmmu">
           
-            <span class="mmmu">Part 3: Evaluating RS-Datasets in downstream benchmarks</span>
+            <span class="mmmu">Part 3: Evaluating <i>RealSyn</i> in downstream benchmarks</span>
           </h1>
         </div>
       </section>
