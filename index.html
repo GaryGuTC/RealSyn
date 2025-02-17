@@ -331,6 +331,12 @@
                   </span>
                   <span><i>RealSyn</i>100M</span>
                 </a>
+                <a href="https://huggingface.co/datasets/Kaichengalex/RealSyn100M?row=0&image-viewer=A73A2341284072C831044EA73E3F4B20B075CAB7" class="button is-medium" style="background: #2C3E50; color: white; border: none; transition: transform 0.2s; box-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                  <span class="icon">
+                    <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Examples</span>
+                </a>
               </div>
               
             </div>
@@ -1706,24 +1712,22 @@
       </section>
       
       <div class="columns is-centered">
-        <div class="column is-two-thirds is-flex is-align-items-center is-justify-content-center" style="padding: 0;">
-          <img src="static/image_RS/model_scaling.png" style="width:80%">
-        </div>
-        <div class="column is-one-third is-flex is-align-items-center is-justify-content-center" style="padding: 0;">
-          <img src="static/image_RS/data_scaling_law.png" style="width:90%">
+        <div class="column is-flex is-align-items-center is-justify-content-center" style="padding: 0; flex-direction: column; width: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <img src="static/image_RS/model_scaling.png" style="width: 60%; max-width: 600px; height: auto;">
+            <img src="static/image_RS/data_scaling_law.png" style="width: 25%; max-width: 600px; height: auto;">
+          </div>
+          <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc; max-width: 800px; margin: 0 auto;">
+            <ul style="margin-top: 1em; color: #333333;">
+              <li><strong style="color: #333333;">Model Scaling:</strong> Compared to LAION, <i>RealSyn</i> demonstrates steeper slopes in performance curves across linear probing, zero-shot transfer, and robustness, indicative of its superior model scaling capabilities. </li>
+              <li><strong style="color: #333333;">Data Scaling Law:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
+            </ul>
+          </div>
         </div>
       </div>
       
-      <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
-        <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
-        <ul style="margin-top: 1em; color: #333333;">
-          <li><strong style="color: #333333;">Model Scaling:</strong> Compared to LAION, <i>RealSyn</i> demonstrates steeper slopes in performance curves across linear probing, zero-shot transfer, and robustness, indicative of its superior model scaling capabilities. </li>
-          <li><strong style="color: #333333;">Data Scaling Law:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
-        </ul>
-      </div>
-    </div>
 
-      <section class="hero is-light is-small">
+      <!-- <section class="hero is-light is-small">
         <div class="hero-body has-text-centered">
           <h1 class="title is-1 mmmu">
           
@@ -1741,7 +1745,6 @@
               <div class="swiper-container" id="results-carousel">
                 <div class="swiper-wrapper">
 
-                  <!-- Slide 1 -->
                   <div class="swiper-slide">
                     <div class="content has-text-centered image-wrapper">
                       <p class="mt-2" style="text-align: center;">
@@ -1749,23 +1752,18 @@
                       <img src="https://3b3832722e63ef13df5f-655e11a96f14b2c941c4bc34ef58f583.ssl.cf2.rackcdn.com/product_images_new/TS_Bill_And_Ted_Party_On_Dudes_Black_T_Shirt_19_99_Flat-617-662.jpg" style="width: 80%; max-width: 400px; height: auto; margin-bottom: 15px;" />
                       <div style="width: 80%; max-width: 4=1000px; text-align: left; padding-left: 100px; padding-right: 100px;">
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
-                          <!-- 文本内容 -->
                           as mentioned above , the 1 9 9 0 s were responsible for some fantastic films , which you can pay homage to with your t - shirt .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           is the movie going to make enough cultural waves that we stick it on ironically on a t - shirt twenty years from now ?
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           the 9 0 s spawned the worst t - shirt franchises of all time , full of terrible and instantly - recognizable icons of terrible taste .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           1990s were responsible for some fantastic films, which you can pay homage to with your black t-shirt.
                         </p>
@@ -1773,7 +1771,6 @@
                     </div>
                   </div>
 
-                  <!-- Slide 1 -->
                   <div class="swiper-slide">
                     <div class="content has-text-centered image-wrapper">
                       <p class="mt-2" style="text-align: center;">
@@ -1781,23 +1778,18 @@
                       <img src="https://www.theprowler.org/wp-content/uploads/2022/05/IMG_6024-900x900.jpg" style="width: 80%; max-width: 400px; height: auto; margin-bottom: 15px;" />
                       <div style="width: 80%; max-width: 4=1000px; text-align: left; padding-left: 100px; padding-right: 100px;">
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
-                          <!-- 文本内容 -->
                           an concept of hibler was for a black hole to be featured in the story . if one thing travels faster than light , it can really escape black hole .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           the minatorg needs to find a way off planet p . the planet orbits a black hole and has existed in an anomalous state of time .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           the was the sensation of being pulled downwards with the force of a black hole , including the part where the body was torn in half over and over again .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           concept of hibler featured a black hole in the story, where if something travels faster than light, it can escape the black hole.
                         </p>
@@ -1805,7 +1797,6 @@
                     </div>
                   </div>
 
-                  <!-- Slide 2 -->
                   <div class="swiper-slide">
                     <div class="content has-text-centered image-wrapper">
                       <p class="mt-2" style="text-align: center;">
@@ -1813,23 +1804,18 @@
                       <img src="https://cdni.russiatoday.com/deutsch/images/2022.05/thumbnail/6281e7e1b480cc752246e1cd.jpg" style="width: 80%; max-width: 400px; height: auto; margin-bottom: 15px;" />
                       <div style="width: 80%; max-width: 4=1000px; text-align: left; padding-left: 100px; padding-right: 100px;">
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
-                          <!-- 文本内容 -->
                           "\" the danger is that we will have to recognise that the majority of the spanish population is of muslim descent ,\" said rodrã ­ guez ramos .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           around 2 , 0 0 0 of them had requested it , according to the union of islamic communities of spain ( ucide ), but so far , students learned about islam in mosques , in islamic associations or in private centers . after years of complaints by muslim organizations , the catalan government published a resolution in september 2 0 2 0 to implement a pilot plan to teach islam as an elec
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           notably , whilst the number of practising catholics is falling , the number of muslims in spain passed 2 million in 2 0 1 9 .
                         </p>
                         <p style="font-size: 1.2rem; line-height: 1.6; background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; font-family: 'Comic Sans MS', sans-serif;">
-                          <!-- 小图标 -->
                           <img src="static/icons/text.svg" alt="icon" style="width: 30px; height: 30px; margin-right: 10px;">: 
                           \"rodriguez ramos warned that the majority of the spanish population is of muslim descent, which poses a danger.\"
                         </p>
@@ -1840,27 +1826,23 @@
       
                 </div>
       
-                <!-- Ensure swiper-container has relative positioning -->
                 <div class="swiper-container" id="results-carousel" style="position: relative;">
                   <div class="swiper-wrapper">
-                    <!-- Your slides here -->
                   </div>
 
-                  <!-- Left and Right Navigation Buttons -->
                   <div class="swiper-button-prev" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 10; width: 30px; height: 30px;"></div>
                   <div class="swiper-button-next" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 10; width: 30px; height: 30px;"></div>
 
-                  <!-- Pagination -->
                   <div class="swiper-pagination"></div>
                 </div>
       
-                <!-- Pagination -->
+
                 <div class="swiper-pagination"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
