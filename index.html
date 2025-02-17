@@ -405,9 +405,6 @@
       <div class="columns is-centered">
         <div class="column is-full-width">
           <h2 class="title is-3"><i>RealSyn</i> Dataset</h2>
-          <!-- <p style="color: #333333;">
-            We use the open-source interleaved dataset <a href="https://huggingface.co/datasets/HuggingFaceM4/OBELICS" target="_blank">OBELICS<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" style="height: 1em; vertical-align: middle;"></a>
-          </p> -->
           <div id="tab:sail_ablation" style="display: flex; flex-direction: column; align-items: center;">
             <div class="table-container">
               <table style="width:100%; border-collapse: collapse; font-size: small; text-align: center;">
@@ -484,12 +481,9 @@
             <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
               <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
               <ul style="margin-top: 1em; color: #333333;">
-                <li><strong style="color: #333333;">Statistic Comparison:</strong> <i>RealSyn</i> dataset provides four textual descriptions for each image, with an average token length of 36-40, significantly higher than LAION400M and YFCC15M. Furthermore, unlike previous datasets, the <i>RealSyn</i> dataset is sourced from real-world interleaved image-text documents and includes both realistic and synthetic texts.</li>
+                <li> <strong style="color: #333333;">Statistic Comparison:</strong> <i>RealSyn</i> dataset provides four textual descriptions for each image, with an average token length of 36-40, significantly higher than LAION400M and YFCC15M. Furthermore, unlike previous datasets, the <i>RealSyn</i> dataset is sourced from real-world interleaved image-text documents and includes both realistic and synthetic texts. </li>
               </ul>
             </div>
-            <!-- <p style="font-style: italic; color: #666; margin-top: -1em;">
-              Table: Comparison with large-scale image-text pre-training datasets.
-            </p>   -->
           </div>
 
 
@@ -629,7 +623,7 @@
                     <img src="static/image_RS/data_filter.jpg" style="width:100%; margin: 0 auto;">
                   </div>
                 </div>
-                <em>Figure: The Real-World Data Extraction pipeline to extract high-quality images and texts from interleaved image-text documents.</em>
+                <!-- <em>Figure: The Real-World Data Extraction pipeline to extract high-quality images and texts from interleaved image-text documents.</em> -->
                 
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <h4 class="title is-5" style="color: #3273dc;">Steps</h4>
@@ -707,14 +701,14 @@
                   </div>
                 </div>
 
-                <em>Figure: The architecture of our proposed framework, which constructs distinct image-text pairs from real-world data extracted from interleaved documents via retrieval and generation.</em>
+                <!-- <em>Figure: The architecture of our proposed framework, which constructs distinct image-text pairs from real-world data extracted from interleaved documents via retrieval and generation.</em> -->
 
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <h4 class="title is-5" style="color: #3273dc;">Key Contributions</h4>
                   <ul style="margin-top: 1em; color: #333333;">
-                    <li><strong style="color: #333333;">Hierarchical Retrieval:</strong> Using EVA02-CLIP and K-means, 0.84B sentences are clustered into 2M groups. To optimize retrieval efficiency, the process is split into two levels: inter-cluster retrieval to find the closest cluster center and intra-cluster retrieval to find the top three relevant sentences. This method allows for efficient retrieval of 198 million images and 0.84 billion sentences in 40 hours with 8 A100 GPUs. </li>
-                    <li><strong style="color: #333333;">Image Semantic Augmented Generation:</strong> The Image Semantic Enhancement module generates brief captions using the OFA model and extracts object detection tags with RAM++. These tags are expanded to 8K with real-world tags and ChatGPT-4 Turbo descriptions. Real-world sentences and image semantics are then combined to create synthetic captions. This data fine-tunes the LLaMA3-8B model, resulting in 198M image-text pairs, each with three real-world sentences and one synthetic caption. </li>
-                    <li><strong style="color: #333333;">Semantic Balance Sampling:</strong> Using EVA02-CLIP, we calculate cosine similarity and filter out 29.7M pairs with high or low similarity. Inspired by MetaCLIP, we cluster the remaining 168.3M image embeddings into 1M centers and sample 20, 35, or 180 images from larger clusters, while retaining all from smaller ones. This process results in the creation of the <i>RealSyn</i>15M, <i>RealSyn</i>30M, and <i>RealSyn</i>100M datasets.
+                    <li><strong style="color: #333333;">Hierarchical Retrieval:</strong> We use EVA02-CLIP and K-means, clustering 0.84B sentences into 2M clusters. We first perform inter-cluster retrieval to find the most relevant cluster center for each image. Then, we group images sharing the same cluster center and perform intra-cluster retrieval to obtain multiple semantically relevant sentences. </li>
+                    <li><strong style="color: #333333;">Image Semantic Augmented Generation:</strong> We employ the OFA model to generate concise captions for images, enhancing fine-grained visual information. Subsequently, the RAM++ model, an open-set image tagging system, extracts object detection tags. We use ChatGPT-4 Turbo to integrate these captions and tags with realistic texts, constructing a dataset of 100,000 instructions. We then fine-tune the LLaMA3-8B model using the LLaMA Factory and deploy the vLLM for large-scale synthetic text generation. </li>
+                    <li><strong style="color: #333333;">Semantic Balance Sampling:</strong> To mitigate the impact of OCR-related or mismatched pairs in pre-training, we exclude 29.7 million pairs exhibiting cosine similarities outside the 0.51 to 0.61 range. We then cluster the embeddings of the remaining 168.3 million image pairs around 1 million centers. To promote semantic diversity, we randomly select 20, 35, and 180 samples from larger clusters and retain all samples from smaller clusters.
                   </ul>
                 </div>
                 <!-- <strong style="color: #4FC3F7">SAIL</strong> achieves superior alignment through three key optimizations:
@@ -1702,7 +1696,7 @@
       
       <div class="columns is-centered">
         <div class="column is-two-thirds is-flex is-align-items-center is-justify-content-center" style="padding: 0;">
-          <img src="static/image_RS/model_scaling.png" style="width:90%">
+          <img src="static/image_RS/model_scaling.png" style="width:80%">
         </div>
         <div class="column is-one-third is-flex is-align-items-center is-justify-content-center" style="padding: 0;">
           <img src="static/image_RS/data_scaling_law.png" style="width:90%">
