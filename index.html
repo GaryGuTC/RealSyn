@@ -422,99 +422,100 @@
       <div class="columns is-centered">
         <div class="column is-full-width">
           <h2 class="title is-3"><i>RealSyn</i> Dataset</h2>
-          <div id="tab:sail_ablation" style="display: flex; flex-direction: column; align-items: center;">
-            <div class="table-container">
-              <table style="width:100%; border-collapse: collapse; font-size: small; text-align: center;">
-                <thead>
-                  <tr style="background-color: #f0f0f0;">
-                    <th style="border: 1px solid #ddd; padding: 8px;">Dataset</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">#Images</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">#Avg Tokens / Image</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">#Avg Texts / Image</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">Text Type</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">Source Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;">CC12M</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">12,000,000</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">-</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;">YFCC15M</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">15,000,000</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">16</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;">CapsFusion</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">120,000,000</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">-</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Synthetic</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Image-Text pair</td>
-                  </tr>
-                  <tr>
-                    <td style="border: 1px solid #ddd; padding: 8px;">LAION400M</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">400,000,000</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">27</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
-                  </tr>
-                  <tr style="background-color: #ebebeb;">
-                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>15M</strong></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">15,250,144</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">40</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                  </tr>
-                  <tr style="background-color: #ebebeb;">
-                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>30M</strong></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">30,328,852</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">38</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                  </tr>
-                  <tr style="background-color: #ebebeb;">
-                    <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>100M</strong></td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">100,862,786</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">36</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
-                  </tr>
-                </tbody>
-              </table>                    
-            </div>
-            <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
-              <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
-              <ul style="margin-top: 1em; color: #333333;">
-                <li> <strong style="color: #333333;">Statistic Comparison:</strong> <i>RealSyn</i> dataset provides four textual descriptions for each image, with an average token length of 36-40, significantly higher than LAION400M and YFCC15M. Furthermore, unlike previous datasets, the <i>RealSyn</i> dataset is sourced from real-world interleaved image-text documents and includes both realistic and synthetic texts. </li>
-              </ul>
-            </div>
-          </div>
 
 
           <div class="content has-text-justified">
             <div class="content has-text-justified">
 
-              <!-- Language as Anchor content -->
+              <div id="tab:sail_ablation" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="table-container">
+                  <table style="width:100%; border-collapse: collapse; font-size: small; text-align: center;">
+                    <thead>
+                      <tr style="background-color: #f0f0f0;">
+                        <th style="border: 1px solid #ddd; padding: 8px;">Dataset</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">#Images</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">#Avg Tokens / Image</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">#Avg Texts / Image</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Text Type</th>
+                        <th style="border: 1px solid #ddd; padding: 8px;">Source Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">CC12M</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">12,000,000</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">-</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">YFCC15M</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">15,000,000</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">16</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">CapsFusion</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">120,000,000</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">-</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Synthetic</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Image-Text pair</td>
+                      </tr>
+                      <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">LAION400M</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">400,000,000</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">27</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Website</td>
+                      </tr>
+                      <tr style="background-color: #ebebeb;">
+                        <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>15M</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">15,250,144</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">40</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                      </tr>
+                      <tr style="background-color: #ebebeb;">
+                        <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>30M</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">30,328,852</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">38</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                      </tr>
+                      <tr style="background-color: #ebebeb;">
+                        <td style="border: 1px solid #ddd; padding: 8px;"><strong><i>RealSyn</i>100M</strong></td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">100,862,786</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">36</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Real-World & Synthetic</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Interleaved Image-Text Document</td>
+                      </tr>
+                    </tbody>
+                  </table>                    
+                </div>
+                <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
+                  <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
+                  <ul style="margin-top: 1em; color: #333333;">
+                    <li> <strong style="color: #333333;">Statistic Comparison:</strong> <i>RealSyn</i> dataset provides four textual descriptions for each image, with an average token length of 36-40, significantly higher than LAION400M and YFCC15M. Furthermore, unlike previous datasets, the <i>RealSyn</i> dataset is sourced from real-world interleaved image-text documents and includes both realistic and synthetic texts. </li>
+                  </ul>
+                </div>
+              </div>
+              
               <div class="content has-text-justified">
                 
                 <div class="columns is-centered">
                   <div class="column">
-                    <img src="static/image_RS/topic_distribution.jpg" style="width:100%">
+                    <img src="static/image_RS/topic_distribution.jpg"style="width:100%; margin-top: 60px;">
                   </div> 
                 </div>
+
                 <!-- <em>Figure: A T-SNE projection of LDA topic cluster from a randomly selected 1M samples from <i>RealSyn</i> dataset.</em> -->
                 <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
                   <!-- <h4 class="title is-5" style="color: #3273dc;">Key Findings</h4> -->
@@ -1679,22 +1680,37 @@
           </h1>
         </div>
       </section>
-      
-      <div class="columns is-centered">
-        <div class="column is-flex is-align-items-center is-justify-content-center" style="padding: 0; flex-direction: column; width: 100%;">
-          <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
-            <img src="static/image_RS/model_scaling.png" style="width: 60%; max-width: 600px; height: auto;">
-            <img src="static/image_RS/data_scaling_law.png" style="width: 25%; max-width: 600px; height: auto;">
-          </div>
-          <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc; max-width: 800px; margin: 0 auto;">
-            <ul style="margin-top: 1em; color: #333333;">
-              <li><strong style="color: #333333;">Model Scaling:</strong> Compared to LAION, <i>RealSyn</i> demonstrates steeper slopes in performance curves across linear probing, zero-shot transfer, and robustness, indicative of its superior model scaling capabilities. </li>
-              <li><strong style="color: #333333;">Data Scaling Law:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
-            </ul>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column">
+              <!-- <h2 class="title is-3">Retrieval and Generation Framework</h2> -->
+              <div class="column is-centered">
+                <div class="content">
+                  <div class="columns is-centered">
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                      <img src="static/image_RS/model_scaling.png" style="width: 60%; max-width: 600px; height: auto;">
+                      <img src="static/image_RS/data_scaling_law.png" style="width: 35%; max-width: 600px; height: auto;">
+                    </div>
+                  </div>
+  
+                  <!-- <em>Figure: The architecture of our proposed framework, which constructs distinct image-text pairs from real-world data extracted from interleaved documents via retrieval and generation.</em> -->
+  
+                  <div class="box" style="background-color: #f9f9f9; padding: 1.5em; margin-top: 2em; border-left: 5px solid #3273dc;">
+                    <h4 class="title is-5" style="color: #3273dc;">Key Contributions</h4>
+                    <ul style="margin-top: 1em; color: #333333;">
+                      <li><strong style="color: #333333;">Model Scaling:</strong> Compared to LAION, <i>RealSyn</i> demonstrates steeper slopes in performance curves across linear probing, zero-shot transfer, and robustness, indicative of its superior model scaling capabilities. </li>
+                      <li><strong style="color: #333333;">Data Scaling Law:</strong> Both the retrieved real-world sentences and semantic augmented synthetic captions encompass a larger quantity of words, which can provide extensive textual information and improve vision-language pre-training. </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
-      </div>
-      
+      </section>
 
       <!-- <section class="hero is-light is-small">
         <div class="hero-body has-text-centered">
